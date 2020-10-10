@@ -52,7 +52,7 @@ async function getCityLatLon() {
 
 async function getWeather() {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/onecall?lat=${cityData.data[0].latitude}&lon=${cityData.data[0].longitude}&exclude=current,hourly,minutely,alerts&units=metric&appid=${apiKeyWeather}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${cityData.data[0].latitude}&lon=${cityData.data[0].longitude}&exclude=current,hourly,minutely,alerts&units=metric&appid=${apiKeyWeather}`
   );
   let data = await response.json();
   weatherData = data.daily
