@@ -3,6 +3,7 @@ const x = [...document.querySelectorAll(".day")];
 const z = [...document.querySelectorAll(".dayDetails")];
 const press = document.querySelector('input')
 const icon = document.querySelector('.cityName i')
+const startPage = document.querySelector('.startPageOn')
 const weekday = [
   'Sunday',
   'Monday',
@@ -35,6 +36,7 @@ let weatherData;
 
 //API
 async function getCityLatLon() {
+  try{
   const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=1&namePrefix=${citySearched}`, {
     "method": "GET",
     "headers": {
@@ -43,7 +45,7 @@ async function getCityLatLon() {
     }
   })
   cityData = await response.json();
-  
+} catch { console.log('cant respoine')}
 
 }
 
@@ -76,9 +78,12 @@ citySearched =
   })
 
 icon.addEventListener('click', () => {
+  if(press.value == "") {
+
+  }else{
   citySearched = document.querySelector('input').value
   console.log(citySearched)
-  getCityLatLon()
+  getCityLatLon
   
   setTimeout(()=> {if(cityData.data.length == 0){
     errorTab.classList.value = 'errorTabOn'
@@ -91,6 +96,7 @@ icon.addEventListener('click', () => {
   } else { 
   cityTab.classList.value = 'cityTabChanged'
   cityInfo.classList.value = 'cityInfoChanged'
+  startPage.classList.value = 'startPageOff'
   setTimeout(() => {  
   cityDetails.innerHTML = `
             <span class="">${displayName(cityData.data[0].city)}</span>
@@ -102,12 +108,15 @@ flag.innerHTML =`
 <img src="https://www.countryflags.io/${cityData.data[0].countryCode}/shiny/64.png">
 `
   }, 800)
+
+  setTimeout(getWeather, 400)
+
+  setTimeout(weatherValues, 1000)
+  setTimeout(daysUpdate, 1000)
 }}, 500)
 
-setTimeout(getWeather, 400)
 
-setTimeout(weatherValues, 1000)
-setTimeout(daysUpdate, 1000)
+  }
 })
 
 
@@ -139,6 +148,7 @@ function rollDown(index) {
 function rollUp() {
   z.forEach((item) => {
     item.style.color = '#1D4277';
+    
     setTimeout(() => {
       item.style.visibility = "hidden";
       item.style.height = "0";
