@@ -1,0 +1,270 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width:100%;
+    
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column; 
+   
+}
+
+.header {
+    height: 60px;
+    width: 100%;
+    background-color: #1E5B8A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    
+}
+
+.cityName {
+ display: grid;
+ grid-template-columns: 20% 80%;
+ column-gap: 5px;
+ align-items: center;
+height: 50px;
+}
+
+.cityName i {
+    display: block;
+    margin: auto;
+    
+}
+
+
+
+.cityName input {
+    margin: 0;
+    display: block;
+    padding: 0 10px 0 0;
+    width: 100%;
+    letter-spacing: 0px;
+    border: 0px solid transparent;
+    background-color: transparent;
+    outline: none;
+    color: white;
+    font-size: 24px;
+    font-weight: 700; 
+    
+}
+
+input::placeholder {
+    color: #ffffff;
+    
+   
+}
+
+input:focus::placeholder {
+    color: rgba(255, 255, 255, 0.2)
+    
+   
+}
+
+.cityTab {
+    height: 0px;
+    visibility: hidden;
+    color: transparent;
+    
+}
+
+.errorTabOff {
+    position: absolute;
+    background-color: rgb(158, 24, 0);
+    top:-60;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+    transition: 200ms;
+}
+
+.errorTabOn {
+    position: absolute;
+    background-color: rgb(158, 24, 0);
+    top:0;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+    transition: 200ms;
+}
+
+.errorText {
+    font-size: 24px;
+    font-weight:600 ;
+}
+
+
+.cityTabChanged {
+     display: grid;
+     grid-template-columns: 30% 30% 40%;  
+     height: 120px;
+     width: 100%;
+     color: white;
+     background-color: tomato;   
+     transition: 400ms;
+}
+
+
+
+
+
+
+
+.cityInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    opacity: 0;  
+}
+
+.cityInfoChanged {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; 
+opacity: 1;
+transition: 600ms;
+}
+
+
+
+.fetchedCityDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+
+}
+
+
+.cityTab span {
+    margin: 2px 0;
+}
+
+.cntFlag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .cityName i {
+     font-size: 24px;
+     margin: 0 10px 0 15px;  
+ }
+
+ .today {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    margin: 0 15px 0 0 ;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+
+
+/*--------------------------------------------------------- */
+
+.day {
+    width: 100%;
+    height: 50px;
+    background-color: #112d55;
+    display: grid;
+    grid-template-columns: 50% 20% 20%;
+    column-gap: 5%;
+    align-items: center;   
+    background-color: #29548f;
+    color: white;
+    
+}
+
+ .degC {
+     font-size: 12px;
+ }
+
+.day h2 {
+    margin: 0 0 0 25px;
+    font-weight: 200;
+}
+
+.day i {
+    font-size:24px;
+    margin: auto ;
+}
+
+.day .celsius {
+    margin: auto;
+    font-size: 26px;
+    padding-right: 20px ;
+    font-family:  'Roboto';
+}
+
+.dayDetails {  
+    
+    height: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: #1D4277;
+    transform-origin: top center; 
+    color: #1D4277;
+    visibility: hidden;
+    transition: 450ms linear;
+}
+
+
+
+.dayDetails .dayInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
+    padding-left:30px ;
+    
+}
+
+.dayDetails .dayInfoName {
+    font-weight: 100;
+}
+
+.dayDetails .dayIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+}
+
+.dayDetails .conditions {
+    font-size: 24px;
+    font-weight: 200;
+}
+
+
+/*------------------------------------------------------------*/
+footer { 
+    width: 100%;
+    height: 140px;
+    background-color: rgb(53, 64, 163);
+}
+
+
+@keyframes inputloop {
+   from { color: yellow; }
+   to { color: white;}
+}
