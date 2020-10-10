@@ -23,7 +23,7 @@ body {
     justify-content: space-between;
     align-items: center;
     color: white;
-    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
@@ -152,6 +152,7 @@ input:focus::placeholder {
     top:60px;
     z-index: 0;
     transition: 2s;
+    
 }
 
 .startPageOff {
@@ -236,7 +237,7 @@ transition: 600ms;
     align-items: center;   
     background-color: #29548f;
     color: white;
-    
+    box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 
