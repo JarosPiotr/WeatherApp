@@ -4,6 +4,7 @@ const z = [...document.querySelectorAll(".dayDetails")];
 const press = document.querySelector('input')
 const icon = document.querySelector('.cityName i')
 const startPage = document.querySelector('.startPageOn')
+const loadingBar = document.querySelector('.loading0')
 const weekday = [
   'Sunday',
   'Monday',
@@ -83,20 +84,24 @@ icon.addEventListener('click', () => {
   }else{
   citySearched = document.querySelector('input').value
   console.log(citySearched)
-  getCityLatLon
-  
+  getCityLatLon()
+  console.log(cityData)
+  loadingBar.classList.value = 'loading1'
   setTimeout(()=> {if(cityData.data.length == 0){
     errorTab.classList.value = 'errorTabOn'
     setTimeout(()=> {
       errorTab.classList.value = 'errorTabOff'
       press.value = ""
       icon.classList.value = "fas fa-map-marker-alt"
+      loadingBar.classList.value = 'loading0'
       press.focus()
     }, 800)
   } else { 
   cityTab.classList.value = 'cityTabChanged'
   cityInfo.classList.value = 'cityInfoChanged'
   startPage.classList.value = 'startPageOff'
+  
+
   setTimeout(() => {  
   cityDetails.innerHTML = `
             <span class="">${displayName(cityData.data[0].city)}</span>
@@ -113,7 +118,8 @@ flag.innerHTML =`
 
   setTimeout(weatherValues, 1000)
   setTimeout(daysUpdate, 1000)
-}}, 500)
+  loadingBar.classList.value = 'loading0'
+}}, 2000)
 
 
   }
@@ -141,14 +147,18 @@ function rollDown(index) {
   console.log("rollDown");
   z[index].style.visibility = "visible";
   z[index].style.height = "200px";
-  setTimeout(() => { z[index].style.color = 'white'; }, 400);
+  setTimeout(() => { 
+  z[index].children[0].style.opacity = 1;
+  z[index].children[1].style.opacity = 1;
+ }, 400);
 
 }
 
 function rollUp() {
   z.forEach((item) => {
-    item.style.color = '#1D4277';
     
+    item.children[0].style.opacity = 0;
+    item.children[1].style.opacity = 0;
     setTimeout(() => {
       item.style.visibility = "hidden";
       item.style.height = "0";
