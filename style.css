@@ -24,7 +24,7 @@ body {
     align-items: center;
     color: white;
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1;
+    z-index: 2;
 }
 
 .cityName {
@@ -164,9 +164,52 @@ input:focus::placeholder {
     z-index: 0;
     display: none;
     opacity: 0;
-    transition: 1s;
-    
+    transition: 1s; 
 }
+
+.matchListOff {
+    height: 0;
+    width: 100%;
+    background-color: #1d4379;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.matchListOn {
+    
+    width: 100%;
+   
+    
+    display: flex;
+    flex-direction: column;
+color:white;
+    text-align: center;
+   font-size: 18px;
+    transition: 300ms;
+    z-index: 1;
+}
+.matchListOn ul {
+    list-style: none;
+  margin: 0;
+padding: 0;
+position: absolute;
+top:60;
+width: 100%;
+z-index: 1;
+background-color: #29548f;
+
+}
+
+.matchListOn li {
+      padding: 15px 0;
+      box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.3);
+
+      
+}
+
+
 
 
 
