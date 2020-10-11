@@ -77,6 +77,7 @@ setWeather()
 citySearched =
   press.addEventListener('input', () => {
     icon.classList.value = "fas fa-check-circle"
+    
   })
 
 icon.addEventListener('click', () => {

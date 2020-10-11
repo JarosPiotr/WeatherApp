@@ -209,6 +209,12 @@ background-color: #29548f;
       
 }
 
+.matchListOn li:active {
+    background-color: rgba(70, 119, 189, 0.5);
+    transition: 200ms;
+    
+}
+
 
 
 
