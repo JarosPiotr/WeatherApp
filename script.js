@@ -80,6 +80,7 @@ citySearched =
   })
 
 icon.addEventListener('click', () => {
+  
   if (press.value == "") {
 
   } else {
@@ -87,13 +88,13 @@ icon.addEventListener('click', () => {
     console.log(citySearched)
     getCityLatLon(citySearched)
    console.log(cityData)
-
+   
    setTimeout(()=>{ if(cityData.data.length == 0 ){
     wrongCityName()
           } else {
             letSelectCity() 
-          
-           
+            loadingBar.classList.value = "loading1"
+            
           }
           },450)
           
@@ -324,10 +325,12 @@ function letSelectCity() {
     matchListGet.forEach((item) => {
       console.log(item.innerHTML)
     })
-
+    
 
     matchListGet.forEach((item, index) => {
       item.addEventListener('click', () => {
+        loadingBar.classList.value = "loading0"
+        
         console.log(item.textContent)
         selectedCity = item.textContent
          getCityLatLon(selectedCity)
@@ -355,7 +358,7 @@ function letSelectCity() {
 
       setTimeout(weatherValues, 1000)
       setTimeout(daysUpdate, 1000)
-
+      
           },500)
         }, 500)
       })
