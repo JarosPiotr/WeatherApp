@@ -235,13 +235,13 @@ function daysUpdate() {
   })
   z.forEach((item, index) => {
     item.querySelector('.dayInfoEveningValue').textContent =
-      newtable[index].eve
+      Math.round(newtable[index].eve )
     item.querySelector('.dayInfoMorningValue').textContent =
-      newtable[index].mor
+    Math.round( newtable[index].mor )
     item.querySelector('.dayInfoNightValue').textContent =
-      newtable[index].night
+    Math.round( newtable[index].night)
     item.querySelector('.dayInfoHumdityValue').textContent =
-      newtable[index].hum
+    Math.round(  newtable[index].hum) + "%"
 
   })
 }
@@ -354,7 +354,7 @@ function letSelectCity() {
     flag.innerHTML =`
     <img src="https://www.countryflags.io/${cityData.data[0].countryCode}/shiny/64.png">
     `
-         setTimeout(getWeather, 400)
+         
 
       setTimeout(weatherValues, 1000)
       setTimeout(daysUpdate, 1000)
